@@ -66,6 +66,8 @@ async function displayBookmarks(query = "") {
 		link.style.overflow = "hidden";
 		link.style.textOverflow = "ellipsis";
 		link.style.display = "inline-block";
+		link.style.color = "#e0def4";
+		link.style.textDecoration = "none";
 
 		const deleteBtn = document.createElement("button");
 		deleteBtn.textContent = "X";
