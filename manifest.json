@@ -19,7 +19,7 @@
     },
     "add-current-tab": {
       "suggested_key": {
-        "default": "Ctrl+Shift+Y"
+        "default": "Alt+Y"
       },
       "description": "Add current tab to the bookmark folder"
     } 
