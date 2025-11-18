@@ -86,43 +86,6 @@ async function displayBookmarks(query = "") {
 
 }
 
-function setupKeyboardNavigation(query) {
-	const results = document.getElementById("results");
-
-	results.addEventListener("keydown", async (e) => {
-		const items = Array.from(results.querySelectorAll(".item"));
-		const currentIndex = items.indexOf(document.activeElement);
-
-		if (e.key === "ArrowDown") {
-			e.preventDefault();
-			const nextIndex = Math.min(currentIndex + 1, items.length - 1);
-			items[nextIndex]?.focus();
-		}
-		else if (e.key === "ArrowUp") {
-			e.preventDefault();
-			const prevIndex = Math.max(currentIndex - 1, 0);
-			items[prevIndex]?.focus();
-		}
-		else if (e.key === "Enter") {
-			e.preventDefault();
-			const activeItem = document.activeElement;
-			const url = activeItem.dataset.bookmarkUrl;
-			if (url) {
-				chrome.tabs.create({ url });
-			}
-		}
-		else if (e.key === "d" && e.altKey) {
-			e.preventDefault();
-			const activeItem = document.activeElement;
-			const bookmarkId = activeItem.dataset.bookmarkId;
-			if (bookmarkId) {
-				await chrome.bookmarks.remove(bookmarkId);
-				displayBookmarks(query);
-			}
-		}
-	});
-}
-
 
 function setupKeyboardNavigation(query) {
 	const results = document.getElementById("results");
@@ -150,7 +113,7 @@ function setupKeyboardNavigation(query) {
 				chrome.tabs.create({ url });
 			}
 		}
-		else if (e.key === "d" && e.altKey) {
+		else if (e.key === "v" && e.altKey) {
 			e.preventDefault();
 			const activeItem = document.activeElement;
 			const bookmarkId = activeItem.dataset.bookmarkId;
@@ -159,7 +122,11 @@ function setupKeyboardNavigation(query) {
 				displayBookmarks(query);
 			}
 		}
-		else {
+		else if (e.key === "a" && e.altKey) {
+			e.preventDefault();
+			addCurrentTab();
+		}
+		else if (!e.altKey) {
 			search.focus();
 		}
 	});
