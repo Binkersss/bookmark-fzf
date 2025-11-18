@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "Fuzzy Bookmark Folder",
+  "version": "1.0",
+  "description": "Fuzzy search, quick add, and delete bookmarks in a folder.",
+  "permissions": ["bookmarks", "tabs"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": [ "background.js" ]
+  },
+  "commands": {
+    "_execute_action": {
+      "suggested_key": {
+        "default": "Alt+B"
+      },
+      "description": "Open bookmark search popup"
+    },
+    "add-current-tab": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Add current tab to the bookmark folder"
+    } 
+  }
+}
+

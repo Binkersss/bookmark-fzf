@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: sans-serif;
+      width: 900px;
+      height: 700px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      padding: 4px 0;
+    }
+    button {
+      background: red;
+      color: white;
+      border: none;
+      padding: 3px 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="search" placeholder="Search bookmarks...">
+  <div id="results"></div>
+  <button id="add">Add Current Tab</button>
+
+  <script src="fuzzy.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
+
